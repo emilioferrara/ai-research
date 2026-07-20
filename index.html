@@ -1,0 +1,831 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧭</text></svg>">
+<title>Emilio Ferrara — Recent Work on AI</title>
+<meta name="description" content="Recent research (2024-2026) by Emilio Ferrara on AI safety, LLM auditing and bias, AI agents, generative AI risk, and AI evaluation — with citation-ready BibTeX.">
+<style>
+  :root {
+    color-scheme: light dark;
+    --ground:      #FBFAF9;
+    --panel:       #FFFFFF;
+    --ink:         #17161A;
+    --ink-soft:    #55525C;
+    --ink-faint:   #8A8691;
+    --rule:        #E4E1DE;
+    --accent:      #C4432A;
+    --accent-soft: #FBF0ED;
+    --code-bg:     #F4F2F0;
+    --shadow:      0 1px 2px rgba(23,22,26,.05), 0 8px 24px -12px rgba(23,22,26,.12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground:      #131215;
+      --panel:       #1B1A1F;
+      --ink:         #EDEBEF;
+      --ink-soft:    #A9A5B0;
+      --ink-faint:   #736F7B;
+      --rule:        #2C2A31;
+      --accent:      #F0785C;
+      --accent-soft: #2A1C19;
+      --code-bg:     #232128;
+      --shadow:      0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#131215; --panel:#1B1A1F; --ink:#EDEBEF; --ink-soft:#A9A5B0;
+    --ink-faint:#736F7B; --rule:#2C2A31; --accent:#F0785C; --accent-soft:#2A1C19;
+    --code-bg:#232128; --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+  }
+  :root[data-theme="light"] {
+    --ground:#FBFAF9; --panel:#FFFFFF; --ink:#17161A; --ink-soft:#55525C;
+    --ink-faint:#8A8691; --rule:#E4E1DE; --accent:#C4432A; --accent-soft:#FBF0ED;
+    --code-bg:#F4F2F0; --shadow:0 1px 2px rgba(23,22,26,.05), 0 8px 24px -12px rgba(23,22,26,.12);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 52rem; margin: 0 auto; padding: 0 1.25rem 5rem; }
+
+  /* ---------- masthead ---------- */
+  header { padding: 3.5rem 0 2rem; border-bottom: 1px solid var(--rule); }
+  .tick { width: 2.5rem; height: 4px; background: var(--accent); border-radius: 2px; }
+  .eyebrow {
+    margin: 1.1rem 0 0;
+    font-size: .74rem; font-weight: 650; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--ink-faint);
+  }
+  h1 {
+    margin: .6rem 0 0;
+    font-size: clamp(2rem, 5.5vw, 2.9rem);
+    line-height: 1.08; font-weight: 750; letter-spacing: -.022em;
+    text-wrap: balance;
+  }
+  .standfirst {
+    margin: 1rem 0 0; max-width: 40rem;
+    font-size: 1.06rem; color: var(--ink-soft);
+  }
+  .byline {
+    margin: 1.5rem 0 0; font-size: .9rem; color: var(--ink-faint);
+  }
+  .byline a { color: var(--ink-soft); }
+
+  /* ---------- toolbar ---------- */
+  .toolbar {
+    display: flex; flex-wrap: wrap; gap: .6rem;
+    margin: 2rem 0 0;
+  }
+  button.tool {
+    font: inherit; font-size: .87rem; font-weight: 600;
+    color: var(--ink); background: var(--panel);
+    border: 1px solid var(--rule); border-radius: 7px;
+    padding: .5rem .85rem; cursor: pointer;
+    transition: border-color .15s, color .15s;
+  }
+  button.tool:hover { border-color: var(--accent); color: var(--accent); }
+  button.tool:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ---------- section ---------- */
+  section { margin: 3.25rem 0 0; }
+  .sec-head {
+    display: flex; align-items: baseline; gap: .75rem;
+    padding-bottom: .6rem; border-bottom: 1px solid var(--rule);
+  }
+  .sec-num {
+    font-size: .78rem; font-weight: 700; letter-spacing: .08em;
+    color: var(--accent); font-variant-numeric: tabular-nums;
+  }
+  .sec-head h2 {
+    margin: 0; font-size: 1.16rem; font-weight: 700; letter-spacing: -.01em;
+  }
+
+  /* ---------- entry ---------- */
+  .entry {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .entry:last-child { border-bottom: 0; }
+  .entry h3 {
+    margin: 0; font-size: 1.04rem; font-weight: 660;
+    line-height: 1.35; letter-spacing: -.008em; text-wrap: balance;
+  }
+  .authors {
+    margin: .4rem 0 0; font-size: .9rem; color: var(--ink-soft);
+  }
+  .venue {
+    margin: .2rem 0 0; font-size: .87rem; color: var(--ink-faint);
+    font-variant-numeric: tabular-nums;
+  }
+  .why {
+    margin: .85rem 0 0; padding-left: .85rem;
+    border-left: 2px solid var(--accent);
+    font-size: .95rem; color: var(--ink);
+  }
+  .why b { font-weight: 660; }
+
+  .links {
+    display: flex; flex-wrap: wrap; gap: .5rem; align-items: center;
+    margin: .9rem 0 0;
+  }
+  .links a, .links button {
+    font: inherit; font-size: .82rem; font-weight: 600;
+    text-decoration: none; cursor: pointer;
+    padding: .3rem .6rem; border-radius: 6px;
+    border: 1px solid var(--rule); background: transparent;
+    color: var(--ink-soft);
+    transition: border-color .15s, color .15s, background .15s;
+  }
+  .links a:hover, .links button:hover {
+    color: var(--accent); border-color: var(--accent); background: var(--accent-soft);
+  }
+  .links a:focus-visible, .links button:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 2px;
+  }
+  .slideref {
+    margin-left: auto; font-size: .76rem; color: var(--ink-faint);
+    font-variant-numeric: tabular-nums; letter-spacing: .03em;
+  }
+
+  pre {
+    display: none;
+    margin: .9rem 0 0; padding: .9rem 1rem;
+    background: var(--code-bg); border-radius: 8px;
+    overflow-x: auto;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .78rem; line-height: 1.5; color: var(--ink);
+    white-space: pre;
+  }
+  .entry.open pre { display: block; }
+
+  /* ---------- notes ---------- */
+  .note {
+    margin: 3.5rem 0 0; padding: 1.15rem 1.25rem;
+    background: var(--panel); border: 1px solid var(--rule);
+    border-radius: 10px; box-shadow: var(--shadow);
+    font-size: .9rem; color: var(--ink-soft);
+  }
+  .note h2 {
+    margin: 0 0 .5rem; font-size: .78rem; font-weight: 700;
+    letter-spacing: .09em; text-transform: uppercase; color: var(--ink-faint);
+  }
+  .note p { margin: .5rem 0 0; }
+  .note a { color: var(--accent); }
+
+  footer {
+    margin: 3rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--rule);
+    font-size: .84rem; color: var(--ink-faint);
+  }
+
+  .toast {
+    position: fixed; left: 50%; bottom: 1.5rem; transform: translate(-50%, 1.5rem);
+    background: var(--ink); color: var(--ground);
+    padding: .6rem 1rem; border-radius: 8px;
+    font-size: .87rem; font-weight: 600;
+    opacity: 0; pointer-events: none;
+    transition: opacity .2s, transform .2s;
+  }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="tick"></div>
+    <p class="eyebrow">Research index · 2024–2026</p>
+    <h1>Recent work on AI</h1>
+    <p class="standfirst">
+      A curated index of my research on artificial intelligence: model safety and deceptive
+      behavior, auditing and bias, agentic systems, generative-AI risk, and evaluation.
+      Each entry carries a plain-language note on what the paper actually shows, plus a
+      citation-ready BibTeX record.
+    </p>
+    <p class="byline">
+      <a href="/">Emilio Ferrara</a> · University of Southern California ·
+      <a href="mailto:emiliofe@usc.edu">emiliofe@usc.edu</a> ·
+      <a href="https://www.emilio.ferrara.name/">emilio.ferrara.name</a> ·
+      <a href="https://scholar.google.com/citations?user=0r7Syh0AAAAJ">Google Scholar</a><br>
+      Social-media, bot, and influence-operations work that has no AI component is indexed
+      separately on <a href="/bots2agents/">the talk companion page</a>.
+    </p>
+    <div class="toolbar">
+      <button class="tool" onclick="copyAll()">Copy all BibTeX</button>
+      <button class="tool" onclick="toggleAll()" id="expandBtn">Show all BibTeX</button>
+    </div>
+  </header>
+
+  <div id="body"></div>
+
+  <div class="note">
+    <h2>How to read the status labels</h2>
+    <p>
+      <b>Published</b> means a version of record exists; where a DOI is available it is linked,
+      and that is the version to cite. <b>In press</b> means accepted at the named venue with no
+      volume or DOI assigned yet. <b>Preprint</b> means the work is on arXiv and under review;
+      author order, numbers, and framing may change before publication, so cite it as a preprint.
+    </p>
+    <p>
+      Several papers exist in both preprint and published form. Where that is the case, only the
+      published venue is listed and that is the one to cite.
+    </p>
+  </div>
+
+  <footer>
+    Last updated 20 July 2026. Bibliographic detail is taken from the canonical CV; DOIs are
+    listed only where one has been assigned. For the complete publication record, including work
+    outside AI, see <a href="https://scholar.google.com/citations?user=0r7Syh0AAAAJ">Google Scholar</a>.
+  </footer>
+</div>
+
+<div class="toast" id="toast">Copied</div>
+
+<script>
+const DATA = [
+  {
+    sec: "01", secTitle: "AI safety, alignment, and deceptive model behavior",
+    items: [
+      {
+        status: "PUBLISHED",
+        title: "Defeat Devices in AI Systems",
+        authors: "Emilio Ferrara",
+        venue: "Future Internet 18(7), 339, 2026",
+        why: "Argues that alignment faking, sandbagging, benchmark gaming, and trojans are one structural mechanism rather than four separate problems: a discriminator that detects when the model is being evaluated, a concealed behavioral swap, and a favorable gap between evaluation and deployment. Introduces <b>TADP</b> (trigger-axis-aware differential probing); across eight open-weight models, every model detected evaluation context (AUC 0.88–1.00) and seven of eight showed strong sycophantic stance-conditioning.",
+        doi: "10.3390/fi18070339",
+        bib: `@article{ferrara2026defeat,
+  title   = {Defeat Devices in {AI} Systems},
+  author  = {Ferrara, Emilio},
+  journal = {Future Internet},
+  volume  = {18},
+  number  = {7},
+  pages   = {339},
+  year    = {2026},
+  doi     = {10.3390/fi18070339}
+}`
+      },
+      {
+        status: "PUBLISHED",
+        title: "Position: RLHF May Not Reflect Genuine Preferences",
+        authors: "Bijean Ghafouri, Eun Cheol Choi, Priyanka Dey, Emilio Ferrara",
+        venue: "ICML 2026, Proceedings of Machine Learning Research 306",
+        why: "RLHF assumes human annotations encode stable underlying preferences. On the PRISM and PluriHarms datasets that assumption frequently fails: filtering out high-inconsistency annotators <b>flips the majority harm classification for 18.6% of prompts</b> and shifts mean ratings by 13.2 points on a 100-point scale. The first three authors contributed equally.",
+        arxiv: "2604.03238",
+        bib: `@inproceedings{ghafouri2026rlhf,
+  title     = {Position: {RLHF} May Not Reflect Genuine Preferences},
+  author    = {Ghafouri, Bijean and Choi, Eun Cheol and Dey, Priyanka and Ferrara, Emilio},
+  booktitle = {Proceedings of the 43rd International Conference on Machine Learning},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {306},
+  year      = {2026},
+  eprint    = {2604.03238},
+  archivePrefix = {arXiv}
+}`
+      },
+      {
+        status: "PREPRINT",
+        title: "Psychological Steering of Large Language Models",
+        authors: "Leonardo Blas, Robin Jia, Emilio Ferrara",
+        venue: "arXiv preprint, 2026",
+        why: "A representation-engineering framework that steers a model's personality traits by injecting calibrated, fluency-constrained vectors into the residual stream. Mean-difference injections beat the Personality Prompting baseline in <b>11 of 14 models</b>, and a hybrid of steering plus prompting wins in 13 of 14 — overturning earlier claims that prompting is the stronger lever.",
+        arxiv: "2604.14463",
+        bib: `@misc{blas2026psychological,
+  title         = {Psychological Steering of Large Language Models},
+  author        = {Blas, Leonardo and Jia, Robin and Ferrara, Emilio},
+  year          = {2026},
+  eprint        = {2604.14463},
+  archivePrefix = {arXiv}
+}`
+      },
+      {
+        status: "PREPRINT",
+        title: "SilentDrift: Exploiting Action Chunking for Stealthy Backdoor Attacks on Vision-Language-Action Models",
+        authors: "Bingxin Xu, Yuzhang Shang, Binghui Wang, Emilio Ferrara",
+        venue: "arXiv preprint, 2026",
+        why: "A black-box backdoor against robotic vision-language-action models that exploits the feedback-free window opened by action chunking and delta-pose control. It reaches <b>93.2% attack success at under 2% poisoning</b> while preserving 95.3% clean task success, with perturbations shaped for continuity so they read as normal motion to anomaly detectors.",
+        arxiv: "2601.14323",
+        bib: `@misc{xu2026silentdrift,
+  title         = {SilentDrift: Exploiting Action Chunking for Stealthy Backdoor Attacks on Vision-Language-Action Models},
+  author        = {Xu, Bingxin and Shang, Yuzhang and Wang, Binghui and Ferrara, Emilio},
+  year          = {2026},
+  eprint        = {2601.14323},
+  archivePrefix = {arXiv}
+}`
+      },
+      {
+        status: "PUBLISHED",
+        title: "Information Suppression in Large Language Models: Auditing, Quantifying, and Characterizing Censorship in DeepSeek",
+        authors: "Peiran Qiu, Siyi Zhou, Emilio Ferrara",
+        venue: "Information Sciences 724, 122702",
+        why: "Compares DeepSeek-R1's chain of thought against its final answers on 646 politically sensitive Chinese-language prompts. The suppression is <b>semantic, not lexical</b>: the model reasons internally about transparency, accountability, and civic mobilization, then omits those threads from the answer — which means access to the reasoning trace partly recovers the suppressed content.",
+        bib: `@article{qiu2026information,
+  title   = {Information Suppression in Large Language Models: Auditing, Quantifying, and Characterizing Censorship in {DeepSeek}},
+  author  = {Qiu, Peiran and Zhou, Siyi and Ferrara, Emilio},
+  journal = {Information Sciences},
+  volume  = {724},
+  pages   = {122702}
+}`
+      }
+    ]
+  },
+  {
+    sec: "02", secTitle: "LLM auditing, bias, and fairness",
+    items: [
+      {
+        status: "PUBLISHED",
+        title: "No Free Lunch in Language Model Bias Mitigation? Targeted Bias Reduction Can Exacerbate Unmitigated LLM Biases",
+        authors: "Shireen Chand, Faith Baca, Emilio Ferrara",
+        venue: "AI 7(1), 24, 2026",
+        why: "The first systematic quantification of <b>cross-category spillover</b> in debiasing. Across 160 experiments spanning ten models and four bias axes, fixing one dimension caused statistically significant collateral damage on untargeted dimensions in 31.5% of evaluations — in some cases doing more harm than the bias it removed. The first two authors contributed equally.",
+        doi: "10.3390/ai7010024",
+        bib: `@article{chand2026nofreelunch,
+  title   = {No Free Lunch in Language Model Bias Mitigation? Targeted Bias Reduction Can Exacerbate Unmitigated {LLM} Biases},
+  author  = {Chand, Shireen and Baca, Faith and Ferrara, Emilio},
+  journal = {AI},
+  volume  = {7},
+  number  = {1},
+  pages   = {24},
+  year    = {2026},
+  doi     = {10.3390/ai7010024}
+}`
+      },
+      {
+        status: "IN PRESS",
+        title: "MOSAIC: Unveiling the Moral, Social and Individual Dimensions of Large Language Models",
+        authors: "Erica Coppolillo, Emilio Ferrara",
+        venue: "KDD 2026 (accepted)",
+        why: "A 642-item benchmark that pairs nine validated psychology instruments with four ethical-dilemma games, run five times across three model families for 9,630 invocations. The human moral-foundation correlation structure <b>largely fails to transfer</b> to LLMs, and models contradict themselves across contexts — evidence of surface heuristics rather than stable ethical frameworks.",
+        arxiv: "2603.00048",
+        bib: `@inproceedings{coppolillo2026mosaic,
+  title     = {MOSAIC: Unveiling the Moral, Social and Individual Dimensions of Large Language Models},
+  author    = {Coppolillo, Erica and Ferrara, Emilio},
+  booktitle = {Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining},
+  year      = {2026},
+  eprint    = {2603.00048},
+  archivePrefix = {arXiv}
+}`
+      },
+      {
+        status: "PUBLISHED",
+        title: "Can LLMs Express Personality Across Cultures? Introducing CulturalPersonas for Evaluating Trait Alignment",
+        authors: "Priyanka Dey, Yugal Khanter, Aayush Bothra, Jieyu Zhao, Emilio Ferrara",
+        venue: "Findings of EMNLP 2025",
+        why: "A 3,000-question benchmark of culturally grounded personality scenarios across six countries. Grounding the scenarios in local context cuts Wasserstein distance to country-specific human Big Five distributions by <b>over 20%</b>, showing that standard personality evaluations miss cultural modulation entirely.",
+        bib: `@inproceedings{dey2025culturalpersonas,
+  title     = {Can {LLMs} Express Personality Across Cultures? Introducing {CulturalPersonas} for Evaluating Trait Alignment},
+  author    = {Dey, Priyanka and Khanter, Yugal and Bothra, Aayush and Zhao, Jieyu and Ferrara, Emilio},
+  booktitle = {Findings of the Association for Computational Linguistics: EMNLP 2025},
+  year      = {2025}
+}`
+      },
+      {
+        status: "PUBLISHED",
+        title: "The Butterfly Effect in Artificial Intelligence Systems: Implications for AI Bias and Fairness",
+        authors: "Emilio Ferrara",
+        venue: "Machine Learning with Applications 15, 100525, 2024",
+        why: "Argues that small, seemingly innocuous design choices amplify into large systemic bias outcomes. This is the framework that the 2026 robustness-audit work extends from single models to multi-agent social simulations.",
+        bib: `@article{ferrara2024butterfly,
+  title   = {The Butterfly Effect in Artificial Intelligence Systems: Implications for {AI} Bias and Fairness},
+  author  = {Ferrara, Emilio},
+  journal = {Machine Learning with Applications},
+  volume  = {15},
+  pages   = {100525},
+  year    = {2024}
+}`
+      },
+      {
+        status: "PUBLISHED",
+        title: "Fairness and Bias in Artificial Intelligence: A Brief Survey of Sources, Impacts, and Mitigation Strategies",
+        authors: "Emilio Ferrara",
+        venue: "Sci 6(1), 2024",
+        why: "A survey mapping where bias enters an AI system and which mitigations address which entry point. The general-reference anchor for the auditing work that follows.",
+        bib: `@article{ferrara2024fairness,
+  title   = {Fairness and Bias in Artificial Intelligence: A Brief Survey of Sources, Impacts, and Mitigation Strategies},
+  author  = {Ferrara, Emilio},
+  journal = {Sci},
+  volume  = {6},
+  number  = {1},
+  year    = {2024}
+}`
+      }
+    ]
+  },
+  {
+    sec: "03", secTitle: "LLM social simulation and robustness audits",
+    items: [
+      {
+        status: "PREPRINT",
+        title: "Stop Drawing Scientific Claims from LLM Social Simulations Without Robustness Audits",
+        authors: "Jinyi Ye, Lei Cao, Ding Chen, Emilio Ferrara",
+        venue: "arXiv preprint, 2026",
+        why: "Shows that semantically equivalent design choices cascade into macro-level swings: persona format alone moved Prisoner's Dilemma cooperation by <b>76 percentage points</b> on one frontier model and about 1 point on another. Introduces <b>TRAILS</b>, a taxonomy for auditing the robustness of LLM-based social simulations. The first two authors contributed equally.",
+        arxiv: "2605.18890",
+        bib: `@misc{ye2026stopdrawing,
+  title         = {Stop Drawing Scientific Claims from {LLM} Social Simulations Without Robustness Audits},
+  author        = {Ye, Jinyi and Cao, Lei and Chen, Ding and Ferrara, Emilio},
+  year          = {2026},
+  eprint        = {2605.18890},
+  archivePrefix = {arXiv}
+}`
+      },
+      {
+        status: "IN PRESS",
+        title: "Overstating Attitudes, Ignoring Networks: LLM Biases in Simulating Misinformation Susceptibility",
+        authors: "Eun Cheol Choi, Lindsay E. Young, Emilio Ferrara",
+        venue: "ICWSM 2026",
+        why: "Tests whether LLM-simulated respondents reproduce human misinformation belief and sharing across three real survey datasets. They do not: simulated agents <b>inflate the belief–sharing correlation</b> (human ρ ≈ .34–.61 against simulated .74–.96), overstate explained variance by an order of magnitude, and are effectively blind to personal-network structure.",
+        arxiv: "2602.04674",
+        bib: `@inproceedings{choi2026overstating,
+  title     = {Overstating Attitudes, Ignoring Networks: {LLM} Biases in Simulating Misinformation Susceptibility},
+  author    = {Choi, Eun Cheol and Young, Lindsay E. and Ferrara, Emilio},
+  booktitle = {Proceedings of the International AAAI Conference on Web and Social Media},
+  year      = {2026},
+  eprint    = {2602.04674},
+  archivePrefix = {arXiv}
+}`
+      },
+      {
+        status: "PREPRINT",
+        title: "LLMs can persuade only psychologically susceptible humans on societal issues, via trust in AI and emotional appeals, amid logical fallacies",
+        authors: "Alexis Carrillo, Salvatore Citraro, Ali Aghazadeh Ardebili, Enrique Taietta, Giulio Rossetti, Emilio Ferrara, Giuseppe Alessandro Veltri, Massimo Stella",
+        venue: "arXiv preprint, 2026",
+        why: "The Talk2AI study: 770 participants, 3,080 conversations, roughly 60,000 turns, four model families, four waves. Opinion change is <b>rare and concentrated in a susceptible profile</b> — high trust in AI, agreeableness, extraversion, need for cognition — and logical fallacies appear in 17% of human and 14.5% of LLM turns.",
+        arxiv: "2604.16935",
+        bib: `@misc{carrillo2026persuade,
+  title         = {{LLMs} can persuade only psychologically susceptible humans on societal issues, via trust in {AI} and emotional appeals, amid logical fallacies},
+  author        = {Carrillo, Alexis and Citraro, Salvatore and Aghazadeh Ardebili, Ali and Taietta, Enrique and Rossetti, Giulio and Ferrara, Emilio and Veltri, Giuseppe Alessandro and Stella, Massimo},
+  year          = {2026},
+  eprint        = {2604.16935},
+  archivePrefix = {arXiv}
+}`
+      },
+      {
+        status: "PREPRINT",
+        title: "Lost Before Translation: Social Information Transmission and Survival in AI-AI Communication",
+        authors: "Bijean Ghafouri, Emilio Ferrara",
+        venue: "Working paper, 2026",
+        why: "A telephone-game paradigm chaining 100 sequential AI-to-AI relays. Content decays from 26 factual elements to about 8.8, certainty converges on a single moderate attractor near 4.4 out of 10 regardless of how assertive the input was, and emotion is muted — yet humans rate the transmitted output as <b>more credible while recalling less of it</b>.",
+        bib: `@unpublished{ghafouri2026lost,
+  title  = {Lost Before Translation: Social Information Transmission and Survival in {AI}-{AI} Communication},
+  author = {Ghafouri, Bijean and Ferrara, Emilio},
+  year   = {2026},
+  note   = {Working paper}
+}`
+      }
+    ]
+  },
+  {
+    sec: "04", secTitle: "AI agents and agentic risk",
+    items: [
+      {
+        status: "PUBLISHED",
+        title: "Emergent Coordinated Behaviors in Networked LLM Agents: Modeling the Strategic Dynamics of Information Operations",
+        authors: "Gian Marco Orlando, Jinyi Ye, Valerio La Gatta, Mahdi Saeedi, Vincenzo Moscato, Emilio Ferrara, Luca Luceri",
+        venue: "Proceedings of the ACM Web Conference 2026",
+        why: "A generative agent-based simulation of influence operations. Simply <b>telling agents which peers share their goal</b> produced coordination nearly as strong as explicit deliberation and voting (re-shares to allied peers rise from 0.83 to 0.96), with agents autonomously reproducing synchronized amplification, narrative homogenization, and hashtag flooding. The first two authors contributed equally.",
+        doi: "10.1145/3774904.3792580",
+        bib: `@inproceedings{orlando2026emergent,
+  title     = {Emergent Coordinated Behaviors in Networked {LLM} Agents: Modeling the Strategic Dynamics of Information Operations},
+  author    = {Orlando, Gian Marco and Ye, Jinyi and La Gatta, Valerio and Saeedi, Mahdi and Moscato, Vincenzo and Ferrara, Emilio and Luceri, Luca},
+  booktitle = {Proceedings of the ACM Web Conference 2026},
+  year      = {2026},
+  doi       = {10.1145/3774904.3792580}
+}`
+      },
+      {
+        status: "PREPRINT",
+        title: "How Far Will They Go? Red-Teaming Online Influence with Large Language Models",
+        authors: "Daniel C. Ruiz, Anna Serbina, Ashwin Rao, Emilio Ferrara, Luca Luceri",
+        venue: "arXiv preprint, 2026",
+        why: "Measures the political expressivity range of 31 open-source models across 10 families and audits eight plain-language jailbreaks. Baseline expressivity is already tilted — <b>29 of 31 models</b> express left-leaning positions with higher fidelity — few-shot prompting is the only reliably effective expander, and three jailbreaks backfire into more refusals rather than fewer.",
+        arxiv: "2605.22880",
+        bib: `@misc{ruiz2026howfar,
+  title         = {How Far Will They Go? Red-Teaming Online Influence with Large Language Models},
+  author        = {Ruiz, Daniel C. and Serbina, Anna and Rao, Ashwin and Ferrara, Emilio and Luceri, Luca},
+  year          = {2026},
+  eprint        = {2605.22880},
+  archivePrefix = {arXiv}
+}`
+      }
+    ]
+  },
+  {
+    sec: "05", secTitle: "Generative AI and synthetic media risk",
+    items: [
+      {
+        status: "PUBLISHED",
+        title: "The Generative AI Paradox: GenAI and the Erosion of Trust, the Corrosion of Information Verification, and the Demise of Truth",
+        authors: "Emilio Ferrara",
+        venue: "Future Internet 18(2), 73, 2026",
+        why: "Argues that the real risk is not the isolated deepfake but <b>synthetic realities</b>: a four-layer stack of synthetic content, identity, interaction, and institutions. As the cost of fabrication falls toward zero, societies may rationally discount all digital evidence, driving the cost of verification toward infinity.",
+        doi: "10.3390/fi18020073",
+        bib: `@article{ferrara2026paradox,
+  title   = {The Generative {AI} Paradox: {GenAI} and the Erosion of Trust, the Corrosion of Information Verification, and the Demise of Truth},
+  author  = {Ferrara, Emilio},
+  journal = {Future Internet},
+  volume  = {18},
+  number  = {2},
+  pages   = {73},
+  year    = {2026},
+  doi     = {10.3390/fi18020073}
+}`
+      },
+      {
+        status: "PUBLISHED",
+        title: "Charting the Landscape of Nefarious Uses of Generative Artificial Intelligence for Online Election Interference",
+        authors: "Emilio Ferrara",
+        venue: "First Monday 30(6), 2025",
+        why: "A systematic review covering 2018–2025 that typologizes four attack classes — deepfakes, AI-powered botnets, targeted misinformation campaigns, and synthetic identities — across documented election cases, and separates perceptual threats from text-based ones. <b>Cite this version, not the 2024 SSRN preprint.</b>",
+        bib: `@article{ferrara2025charting,
+  title   = {Charting the Landscape of Nefarious Uses of Generative Artificial Intelligence for Online Election Interference},
+  author  = {Ferrara, Emilio},
+  journal = {First Monday},
+  volume  = {30},
+  number  = {6},
+  year    = {2025}
+}`
+      },
+      {
+        status: "PUBLISHED",
+        title: "GenAI Against Humanity: Nefarious Applications of Generative Artificial Intelligence and Large Language Models",
+        authors: "Emilio Ferrara",
+        venue: "Journal of Computational Social Science 7, 2024",
+        why: "The foundational harms taxonomy for generative AI, and the base that both the 2025 election review and the 2026 Paradox paper build on.",
+        bib: `@article{ferrara2024genai,
+  title   = {GenAI Against Humanity: Nefarious Applications of Generative Artificial Intelligence and Large Language Models},
+  author  = {Ferrara, Emilio},
+  journal = {Journal of Computational Social Science},
+  volume  = {7},
+  year    = {2024}
+}`
+      },
+      {
+        status: "PUBLISHED",
+        title: "Synthetic Politics: Prevalence, Spreaders, and Emotional Reception of AI-Generated Political Images on X",
+        authors: "Zhiyi Chen, Jinyi Ye, Beverlyn Tsai, Emilio Ferrara, Luca Luceri",
+        venue: "ACM Hypertext 2025 — Best Student Paper, Honorable Mention",
+        why: "From 2.5 million images shared by 414,000 users during the 2024 election, roughly <b>12% of political images are AI-generated</b> and 10% of users account for 80% of that sharing. Superspreaders skew right-leaning, X Premium, and bot-like.",
+        bib: `@inproceedings{chen2025synthetic,
+  title     = {Synthetic Politics: Prevalence, Spreaders, and Emotional Reception of {AI}-Generated Political Images on {X}},
+  author    = {Chen, Zhiyi and Ye, Jinyi and Tsai, Beverlyn and Ferrara, Emilio and Luceri, Luca},
+  booktitle = {Proceedings of the 36th ACM Conference on Hypertext and Social Media},
+  year      = {2025}
+}`
+      },
+      {
+        status: "PUBLISHED",
+        title: "Factuality Challenges in the Era of Large Language Models",
+        authors: "Isabelle Augenstein, Timothy Baldwin, Meeyoung Cha, Tanmoy Chakraborty, Giovanni Luca Ciampaglia, David Corney, Renee DiResta, Emilio Ferrara, Scott Hale, Alon Halevy, Eduard Hovy, Heng Ji, Filippo Menczer, Ruben Miguez, Preslav Nakov, Dietram Scheufele, Shivam Sharma, Giovanni Zagni",
+        venue: "Nature Machine Intelligence 6, 852–863, 2024",
+        why: "A multi-institution consensus statement on the arms race between LLM-generated falsehoods and the capacity of fact-checking systems to keep up. The standard citation for the field-level framing of the problem.",
+        bib: `@article{augenstein2024factuality,
+  title   = {Factuality Challenges in the Era of Large Language Models},
+  author  = {Augenstein, Isabelle and Baldwin, Timothy and Cha, Meeyoung and Chakraborty, Tanmoy and Ciampaglia, Giovanni Luca and Corney, David and DiResta, Renee and Ferrara, Emilio and Hale, Scott and Halevy, Alon and Hovy, Eduard and Ji, Heng and Menczer, Filippo and Miguez, Ruben and Nakov, Preslav and Scheufele, Dietram and Sharma, Shivam and Zagni, Giovanni},
+  journal = {Nature Machine Intelligence},
+  volume  = {6},
+  pages   = {852--863},
+  year    = {2024}
+}`
+      }
+    ]
+  },
+  {
+    sec: "06", secTitle: "AI evaluation and benchmarks",
+    items: [
+      {
+        status: "PREPRINT",
+        title: "Pluralis v0.1: Towards a Multicultural, Multimodal, Multilingual Benchmark for AI Risk and Reliability",
+        authors: "Alicia Parrish, Rajat Shinde, Sanket Badhe, Xinyi Bai, Sree Bhargavi Balija, Hua-Rong Chu, Emilio Ferrara, Armstrong Foundjem, Rajat Ghosh, Aakash Gupta, et al.",
+        venue: "arXiv preprint, 2026 — MLCommons AI Risk &amp; Reliability working group",
+        why: "A safety benchmark of 6,848 prompts spanning six Asia-Pacific locales and eight languages. Three theses: safety judgments are <b>locale-dependent</b>, cultural appropriateness is orthogonal to safety rather than a subset of it, and a hazard can be carried jointly by text and image while neither alone is unsafe.",
+        arxiv: "2607.06196",
+        bib: `@misc{parrish2026pluralis,
+  title         = {Pluralis v0.1: Towards a Multicultural, Multimodal, Multilingual Benchmark for {AI} Risk and Reliability},
+  author        = {Parrish, Alicia and Shinde, Rajat and Badhe, Sanket and Bai, Xinyi and Balija, Sree Bhargavi and Chu, Hua-Rong and Ferrara, Emilio and Foundjem, Armstrong and Ghosh, Rajat and Gupta, Aakash and others},
+  year          = {2026},
+  eprint        = {2607.06196},
+  archivePrefix = {arXiv}
+}`
+      },
+      {
+        status: "PREPRINT",
+        title: "What Do People Want to Fact-Check?",
+        authors: "Bijean Ghafouri, Dorsaf Sallami, Luca Luceri, Taylor Lynn Curtis, Jean-Francois Godbout, Emilio Ferrara, Reihaneh Rabbany",
+        venue: "arXiv preprint, 2026",
+        why: "Analyzes 2,473 claims that 457 users freely submitted to an AI fact-checker. <b>21.4% of real requests are empirically unverifiable</b>, and the demand distribution diverges from the FEVER benchmark by 12 to 16 points on all five semantic dimensions — a measurement-validity critique of how fact-checking systems are evaluated.",
+        arxiv: "2602.10935",
+        bib: `@misc{ghafouri2026factcheck,
+  title         = {What Do People Want to Fact-Check?},
+  author        = {Ghafouri, Bijean and Sallami, Dorsaf and Luceri, Luca and Curtis, Taylor Lynn and Godbout, Jean-Francois and Ferrara, Emilio and Rabbany, Reihaneh},
+  year          = {2026},
+  eprint        = {2602.10935},
+  archivePrefix = {arXiv}
+}`
+      },
+      {
+        status: "PUBLISHED",
+        title: "Limited Effectiveness of LLM-based Data Augmentation for COVID-19 Misinformation Stance Detection",
+        authors: "Eun Cheol Choi, Ashwin Balasubramanian, Jinhu Qi, Emilio Ferrara",
+        venue: "Companion Proceedings of the ACM Web Conference 2025",
+        why: "A negative result worth citing: LLM-generated training data does not reliably improve stance detection on misinformation, which pushes back on data augmentation as a default remedy for label scarcity.",
+        bib: `@inproceedings{choi2025limited,
+  title     = {Limited Effectiveness of {LLM}-based Data Augmentation for {COVID}-19 Misinformation Stance Detection},
+  author    = {Choi, Eun Cheol and Balasubramanian, Ashwin and Qi, Jinhu and Ferrara, Emilio},
+  booktitle = {Companion Proceedings of the ACM Web Conference 2025},
+  year      = {2025}
+}`
+      },
+      {
+        status: "PUBLISHED",
+        title: "FACT-GPT: Fact-Checking Augmentation via Claim Matching with LLMs",
+        authors: "Eun Cheol Choi, Emilio Ferrara",
+        venue: "Companion Proceedings of the ACM Web Conference 2024",
+        why: "Uses LLMs to match new claims against already-verified ones, so a single human fact-check can be reused across the many variants of the same claim.",
+        bib: `@inproceedings{choi2024factgpt,
+  title     = {{FACT}-{GPT}: Fact-Checking Augmentation via Claim Matching with {LLMs}},
+  author    = {Choi, Eun Cheol and Ferrara, Emilio},
+  booktitle = {Companion Proceedings of the ACM Web Conference 2024},
+  year      = {2024}
+}`
+      }
+    ]
+  },
+  {
+    sec: "07", secTitle: "Human-AI interaction, personalization, and applications",
+    items: [
+      {
+        status: "PUBLISHED",
+        title: "GRAVITY: A Framework for Personalized Text Generation via Profile-Grounded Synthetic Preferences",
+        authors: "Priyanka Dey, Daniele Rosa, Wenqing Zheng, Daniel Barcklow, Jieyu Zhao, Emilio Ferrara",
+        venue: "EACL 2026, Volume 1: Long Papers, 7416–7436",
+        why: "Generates synthetic preference pairs for DPO that are grounded in Hofstede, Schwartz, World Values Survey, and Big Five profiles rather than in generic annotator judgments. It beats prompt-based, SFT, and naive-DPO baselines by over 4% preference gain, is preferred by real users <b>86.7% of the time</b>, and gains most in non-Western contexts.",
+        bib: `@inproceedings{dey2026gravity,
+  title     = {GRAVITY: A Framework for Personalized Text Generation via Profile-Grounded Synthetic Preferences},
+  author    = {Dey, Priyanka and Rosa, Daniele and Zheng, Wenqing and Barcklow, Daniel and Zhao, Jieyu and Ferrara, Emilio},
+  booktitle = {Proceedings of the 18th Conference of the European Chapter of the Association for Computational Linguistics (Volume 1: Long Papers)},
+  pages     = {7416--7436},
+  year      = {2026}
+}`
+      },
+      {
+        status: "PUBLISHED",
+        title: "Can Language Model Moderators Improve the Health of Online Discourse?",
+        authors: "Hyundong Cho, Shuai Liu, Devendra Jain, Basem Rizk, Yuyang Huang, Zixun Lu, Nuan Wen, Jonathan Gratch, Emilio Ferrara, Jonathan May",
+        venue: "NAACL 2024",
+        why: "Builds an evaluation framework for language-model moderators grounded in moderation theory, and measures whether an LLM placed inside a conversation actually improves its health rather than merely suppressing it.",
+        bib: `@inproceedings{cho2024moderators,
+  title     = {Can Language Model Moderators Improve the Health of Online Discourse?},
+  author    = {Cho, Hyundong and Liu, Shuai and Jain, Devendra and Rizk, Basem and Huang, Yuyang and Lu, Zixun and Wen, Nuan and Gratch, Jonathan and Ferrara, Emilio and May, Jonathan},
+  booktitle = {Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics},
+  year      = {2024}
+}`
+      },
+      {
+        status: "PUBLISHED",
+        title: "Social-LLM: Modeling User Behavior at Scale using Language Models and Social Network Data",
+        authors: "Julie Jiang, Emilio Ferrara",
+        venue: "Sci 7(4), 138, 2025",
+        why: "Combines language-model representations of what users write with the structure of who they connect to, producing user embeddings that scale to large platforms without task-specific supervision.",
+        bib: `@article{jiang2025socialllm,
+  title   = {Social-{LLM}: Modeling User Behavior at Scale using Language Models and Social Network Data},
+  author  = {Jiang, Julie and Ferrara, Emilio},
+  journal = {Sci},
+  volume  = {7},
+  number  = {4},
+  pages   = {138},
+  year    = {2025}
+}`
+      },
+      {
+        status: "PUBLISHED",
+        title: "Large Language Models for Wearable Sensor-Based Human Activity Recognition, Health Monitoring, and Behavioral Modeling: A Survey of Early Trends, Datasets, and Challenges",
+        authors: "Emilio Ferrara",
+        venue: "Sensors 24(15), 2024",
+        why: "Surveys how LLMs are being applied to wearable sensor streams for activity recognition and health monitoring, and catalogs the datasets and open problems in that emerging area.",
+        bib: `@article{ferrara2024wearable,
+  title   = {Large Language Models for Wearable Sensor-Based Human Activity Recognition, Health Monitoring, and Behavioral Modeling: A Survey of Early Trends, Datasets, and Challenges},
+  author  = {Ferrara, Emilio},
+  journal = {Sensors},
+  volume  = {24},
+  number  = {15},
+  year    = {2024}
+}`
+      }
+    ]
+  },
+  {
+    sec: "08", secTitle: "Algorithmic auditing and AI methods",
+    items: [
+      {
+        status: "PUBLISHED",
+        title: "Auditing Political Exposure Bias: Algorithmic Amplification on Twitter/X Approaching the 2024 U.S. Presidential Election",
+        authors: "Jinyi Ye, Luca Luceri, Emilio Ferrara",
+        venue: "ACM FAccT 2025",
+        why: "A recommender-system audit measuring how much partisan asymmetry the algorithmic timeline introduces relative to the chronological one, in the run-up to the 2024 election.",
+        bib: `@inproceedings{ye2025auditing,
+  title     = {Auditing Political Exposure Bias: Algorithmic Amplification on {Twitter/X} Approaching the 2024 {U.S.} Presidential Election},
+  author    = {Ye, Jinyi and Luceri, Luca and Ferrara, Emilio},
+  booktitle = {Proceedings of the 2025 ACM Conference on Fairness, Accountability, and Transparency},
+  year      = {2025}
+}`
+      },
+      {
+        status: "PUBLISHED",
+        title: "IOHunter: Graph Foundation Model to Uncover Online Information Operations",
+        authors: "Marco Minici, Luca Luceri, Francesco Fabbri, Emilio Ferrara",
+        venue: "AAAI 2025",
+        why: "A graph foundation model for detecting state-sponsored influence operations. Listed here as an AI-methods contribution: the interest is the transferable graph representation, not the individual campaigns it recovers.",
+        bib: `@inproceedings{minici2025iohunter,
+  title     = {{IOHunter}: Graph Foundation Model to Uncover Online Information Operations},
+  author    = {Minici, Marco and Luceri, Luca and Fabbri, Francesco and Ferrara, Emilio},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  year      = {2025}
+}`
+      }
+    ]
+  }
+];
+
+function esc(s) {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+function render() {
+  const root = document.getElementById("body");
+  DATA.forEach(sec => {
+    const el = document.createElement("section");
+    let html = `<div class="sec-head"><span class="sec-num">${sec.sec}</span><h2>${sec.secTitle}</h2></div>`;
+    sec.items.forEach(it => {
+      const links = [];
+      if (it.doi) links.push(`<a href="https://doi.org/${it.doi}" target="_blank" rel="noopener">DOI</a>`);
+      if (it.arxiv) links.push(`<a href="https://arxiv.org/abs/${it.arxiv}" target="_blank" rel="noopener">arXiv</a>`);
+      if (it.url) links.push(`<a href="${it.url}" target="_blank" rel="noopener">Document</a>`);
+      links.push(`<button onclick="toggleBib(this)">BibTeX</button>`);
+      links.push(`<button onclick="copyBib(this)">Copy</button>`);
+      html += `<article class="entry" data-bib="${encodeURIComponent(it.bib)}">
+        <h3>${it.title}</h3>
+        <p class="authors">${it.authors}</p>
+        <p class="venue">${it.venue}</p>
+        <p class="why">${it.why}</p>
+        <div class="links">${links.join("")}<span class="slideref">${it.status}</span></div>
+        <pre>${esc(it.bib)}</pre>
+      </article>`;
+    });
+    el.innerHTML = html;
+    root.appendChild(el);
+  });
+}
+
+function toggleBib(btn) {
+  btn.closest(".entry").classList.toggle("open");
+}
+
+function toast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove("show"), 1600);
+}
+
+async function writeClip(text, msg) {
+  try {
+    await navigator.clipboard.writeText(text);
+    toast(msg);
+  } catch (e) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); toast(msg); }
+    catch (e2) { toast("Select the text to copy"); }
+    document.body.removeChild(ta);
+  }
+}
+
+function copyBib(btn) {
+  const bib = decodeURIComponent(btn.closest(".entry").dataset.bib);
+  writeClip(bib, "BibTeX copied");
+}
+
+function copyAll() {
+  const all = DATA.flatMap(s => s.items.map(i => i.bib)).join("\n\n");
+  writeClip(all, DATA.flatMap(s => s.items).length + " entries copied");
+}
+
+function toggleAll() {
+  const entries = [...document.querySelectorAll(".entry")];
+  const anyClosed = entries.some(e => !e.classList.contains("open"));
+  entries.forEach(e => e.classList.toggle("open", anyClosed));
+  document.getElementById("expandBtn").textContent = anyClosed ? "Hide all BibTeX" : "Show all BibTeX";
+}
+
+render();
+</script>
+</body></html>
