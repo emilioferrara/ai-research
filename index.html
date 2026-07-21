@@ -270,13 +270,13 @@ const DATA = [
       },
       {
         status: "PUBLISHED",
-        title: "Position: RLHF May Not Reflect Genuine Preferences",
+        title: "Position: Measuring Human Preferences in RLHF is a Social Science Problem",
         authors: "Bijean Ghafouri, Eun Cheol Choi, Priyanka Dey, Emilio Ferrara",
         venue: "ICML 2026, Proceedings of Machine Learning Research 306",
         why: "RLHF assumes human annotations encode stable underlying preferences. On the PRISM and PluriHarms datasets that assumption frequently fails: filtering out high-inconsistency annotators <b>flips the majority harm classification for 18.6% of prompts</b> and shifts mean ratings by 13.2 points on a 100-point scale. The first three authors contributed equally.",
         arxiv: "2604.03238",
         bib: `@inproceedings{ghafouri2026rlhf,
-  title     = {Position: {RLHF} May Not Reflect Genuine Preferences},
+  title     = {Position: Measuring Human Preferences in {RLHF} is a Social Science Problem},
   author    = {Ghafouri, Bijean and Choi, Eun Cheol and Dey, Priyanka and Ferrara, Emilio},
   booktitle = {Proceedings of the 43rd International Conference on Machine Learning},
   series    = {Proceedings of Machine Learning Research},
@@ -302,32 +302,37 @@ const DATA = [
 }`
       },
       {
-        status: "PREPRINT",
+        status: "PUBLISHED",
         title: "SilentDrift: Exploiting Action Chunking for Stealthy Backdoor Attacks on Vision-Language-Action Models",
         authors: "Bingxin Xu, Yuzhang Shang, Binghui Wang, Emilio Ferrara",
-        venue: "arXiv preprint, 2026",
+        venue: "Findings of ACL 2026, 34570–34582",
         why: "A black-box backdoor against robotic vision-language-action models that exploits the feedback-free window opened by action chunking and delta-pose control. It reaches <b>93.2% attack success at under 2% poisoning</b> while preserving 95.3% clean task success, with perturbations shaped for continuity so they read as normal motion to anomaly detectors.",
+        doi: "10.18653/v1/2026.findings-acl.1725",
         arxiv: "2601.14323",
-        bib: `@misc{xu2026silentdrift,
-  title         = {SilentDrift: Exploiting Action Chunking for Stealthy Backdoor Attacks on Vision-Language-Action Models},
-  author        = {Xu, Bingxin and Shang, Yuzhang and Wang, Binghui and Ferrara, Emilio},
-  year          = {2026},
-  eprint        = {2601.14323},
-  archivePrefix = {arXiv}
+        bib: `@inproceedings{xu2026silentdrift,
+  title     = {SilentDrift: Exploiting Action Chunking for Stealthy Backdoor Attacks on Vision-Language-Action Models},
+  author    = {Xu, Bingxin and Shang, Yuzhang and Wang, Binghui and Ferrara, Emilio},
+  booktitle = {Findings of the Association for Computational Linguistics: ACL 2026},
+  pages     = {34570--34582},
+  year      = {2026},
+  doi       = {10.18653/v1/2026.findings-acl.1725}
 }`
       },
       {
         status: "PUBLISHED",
         title: "Information Suppression in Large Language Models: Auditing, Quantifying, and Characterizing Censorship in DeepSeek",
         authors: "Peiran Qiu, Siyi Zhou, Emilio Ferrara",
-        venue: "Information Sciences 724, 122702",
+        venue: "Information Sciences 724, 122702, 2026",
         why: "Compares DeepSeek-R1's chain of thought against its final answers on 646 politically sensitive Chinese-language prompts. The suppression is <b>semantic, not lexical</b>: the model reasons internally about transparency, accountability, and civic mobilization, then omits those threads from the answer — which means access to the reasoning trace partly recovers the suppressed content.",
+        doi: "10.1016/j.ins.2025.122702",
         bib: `@article{qiu2026information,
   title   = {Information Suppression in Large Language Models: Auditing, Quantifying, and Characterizing Censorship in {DeepSeek}},
   author  = {Qiu, Peiran and Zhou, Siyi and Ferrara, Emilio},
   journal = {Information Sciences},
   volume  = {724},
-  pages   = {122702}
+  pages   = {122702},
+  year    = {2026},
+  doi     = {10.1016/j.ins.2025.122702}
 }`
       }
     ]
@@ -372,14 +377,17 @@ const DATA = [
       {
         status: "PUBLISHED",
         title: "Can LLMs Express Personality Across Cultures? Introducing CulturalPersonas for Evaluating Trait Alignment",
-        authors: "Priyanka Dey, Yugal Khanter, Aayush Bothra, Jieyu Zhao, Emilio Ferrara",
-        venue: "Findings of EMNLP 2025",
+        authors: "Priyanka Dey, Aayush Bothra, Yugal Khanter, Jieyu Zhao, Emilio Ferrara",
+        venue: "Findings of EMNLP 2025, 20241–20262",
         why: "A 3,000-question benchmark of culturally grounded personality scenarios across six countries. Grounding the scenarios in local context cuts Wasserstein distance to country-specific human Big Five distributions by <b>over 20%</b>, showing that standard personality evaluations miss cultural modulation entirely.",
+        doi: "10.18653/v1/2025.findings-emnlp.1101",
         bib: `@inproceedings{dey2025culturalpersonas,
   title     = {Can {LLMs} Express Personality Across Cultures? Introducing {CulturalPersonas} for Evaluating Trait Alignment},
-  author    = {Dey, Priyanka and Khanter, Yugal and Bothra, Aayush and Zhao, Jieyu and Ferrara, Emilio},
+  author    = {Dey, Priyanka and Bothra, Aayush and Khanter, Yugal and Zhao, Jieyu and Ferrara, Emilio},
   booktitle = {Findings of the Association for Computational Linguistics: EMNLP 2025},
-  year      = {2025}
+  pages     = {20241--20262},
+  year      = {2025},
+  doi       = {10.18653/v1/2025.findings-emnlp.1101}
 }`
       },
       {
@@ -388,28 +396,33 @@ const DATA = [
         authors: "Emilio Ferrara",
         venue: "Machine Learning with Applications 15, 100525, 2024",
         why: "Argues that small, seemingly innocuous design choices amplify into large systemic bias outcomes. This is the framework that the 2026 robustness-audit work extends from single models to multi-agent social simulations.",
+        doi: "10.1016/j.mlwa.2024.100525",
         bib: `@article{ferrara2024butterfly,
   title   = {The Butterfly Effect in Artificial Intelligence Systems: Implications for {AI} Bias and Fairness},
   author  = {Ferrara, Emilio},
   journal = {Machine Learning with Applications},
   volume  = {15},
   pages   = {100525},
-  year    = {2024}
+  year    = {2024},
+  doi     = {10.1016/j.mlwa.2024.100525}
 }`
       },
       {
         status: "PUBLISHED",
         title: "Fairness and Bias in Artificial Intelligence: A Brief Survey of Sources, Impacts, and Mitigation Strategies",
         authors: "Emilio Ferrara",
-        venue: "Sci 6(1), 2024",
+        venue: "Sci 6(1), 3, 2024",
         why: "A survey mapping where bias enters an AI system and which mitigations address which entry point. The general-reference anchor for the auditing work that follows.",
+        doi: "10.3390/sci6010003",
         bib: `@article{ferrara2024fairness,
   title   = {Fairness and Bias in Artificial Intelligence: A Brief Survey of Sources, Impacts, and Mitigation Strategies},
   author  = {Ferrara, Emilio},
   journal = {Sci},
   volume  = {6},
   number  = {1},
-  year    = {2024}
+  pages   = {3},
+  year    = {2024},
+  doi     = {10.3390/sci6010003}
 }`
       }
     ]
@@ -467,13 +480,15 @@ const DATA = [
         status: "PREPRINT",
         title: "Lost Before Translation: Social Information Transmission and Survival in AI-AI Communication",
         authors: "Bijean Ghafouri, Emilio Ferrara",
-        venue: "Working paper, 2026",
+        venue: "arXiv preprint, 2026",
         why: "A telephone-game paradigm chaining 100 sequential AI-to-AI relays. Content decays from 26 factual elements to about 8.8, certainty converges on a single moderate attractor near 4.4 out of 10 regardless of how assertive the input was, and emotion is muted — yet humans rate the transmitted output as <b>more credible while recalling less of it</b>.",
-        bib: `@unpublished{ghafouri2026lost,
-  title  = {Lost Before Translation: Social Information Transmission and Survival in {AI}-{AI} Communication},
-  author = {Ghafouri, Bijean and Ferrara, Emilio},
-  year   = {2026},
-  note   = {Working paper}
+        arxiv: "2602.17674",
+        bib: `@misc{ghafouri2026lost,
+  title         = {Lost Before Translation: Social Information Transmission and Survival in {AI}-{AI} Communication},
+  author        = {Ghafouri, Bijean and Ferrara, Emilio},
+  year          = {2026},
+  eprint        = {2602.17674},
+  archivePrefix = {arXiv}
 }`
       }
     ]
@@ -540,13 +555,15 @@ const DATA = [
         authors: "Emilio Ferrara",
         venue: "First Monday 30(6), 2025",
         why: "A systematic review covering 2018–2025 that typologizes four attack classes — deepfakes, AI-powered botnets, targeted misinformation campaigns, and synthetic identities — across documented election cases, and separates perceptual threats from text-based ones. <b>Cite this version, not the 2024 SSRN preprint.</b>",
+        doi: "10.5210/fm.v30i6.14188",
         bib: `@article{ferrara2025charting,
   title   = {Charting the Landscape of Nefarious Uses of Generative Artificial Intelligence for Online Election Interference},
   author  = {Ferrara, Emilio},
   journal = {First Monday},
   volume  = {30},
   number  = {6},
-  year    = {2025}
+  year    = {2025},
+  doi     = {10.5210/fm.v30i6.14188}
 }`
       },
       {
