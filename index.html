@@ -238,7 +238,7 @@
   </div>
 
   <footer>
-    Last updated 20 July 2026. Bibliographic detail is taken from the canonical CV; DOIs are
+    Last updated 26 July 2026. Bibliographic detail is taken from the canonical CV; DOIs are
     listed only where one has been assigned. For the complete publication record, including work
     outside AI, see <a href="https://scholar.google.com/citations?user=0r7Syh0AAAAJ">Google Scholar</a>.
   </footer>
@@ -794,6 +794,22 @@ const DATA = [
   {
     sec: "08", secTitle: "Algorithmic auditing and AI methods",
     items: [
+      {
+        status: "IN PRESS",
+        title: "Community Detection as Adaptive Diffusion",
+        authors: "Emilio Ferrara",
+        venue: "ACM AI Letters, 2026 (Just Accepted)",
+        why: "The companion Letter to the ECHO journal paper, recasting community structure as regions of <b>adaptive diffusion</b> on a semantic manifold rather than as dense-edge clusters. Its distinctive contribution is a controlled feature-strength study that says <b>when</b> diffusion is the decisive component: it recovers communities from topology when node features are weak, and is actively harmful when features are strong, with a topology-aware router letting one model span both regimes. Beats the strongest of nine recent baselines by 5&ndash;29 NMI points on Amazon Photo/Computers, Coauthor-CS, and the 70-class CoraFull.",
+        doi: "10.1145/3832782",
+        code: "https://github.com/emilioferrara/ECHO-GNN",
+        bib: `@article{ferrara2026community,
+  title   = {Community Detection as Adaptive Diffusion},
+  author  = {Ferrara, Emilio},
+  journal = {ACM AI Letters},
+  year    = {2026},
+  doi     = {10.1145/3832782}
+}`
+      },
       {
         status: "PUBLISHED",
         title: "ECHO: Encoding Communities via High-order Operators",
