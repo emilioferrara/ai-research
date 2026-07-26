@@ -203,8 +203,9 @@
     <p class="standfirst">
       A curated index of my research on artificial intelligence: model safety and deceptive
       behavior, auditing and bias, agentic systems, generative-AI risk, and evaluation.
-      Each entry carries a plain-language note on what the paper actually shows, plus a
-      citation-ready BibTeX record.
+      Each entry carries a plain-language note on what the paper actually shows, a
+      citation-ready BibTeX record, and — where the work released one — a direct link to
+      its code repository or public dataset.
     </p>
     <p class="byline">
       <a href="/">Emilio Ferrara</a> · University of Southern California ·
@@ -294,6 +295,7 @@ const DATA = [
         venue: "arXiv preprint, 2026",
         why: "A representation-engineering framework that steers a model's personality traits by injecting calibrated, fluency-constrained vectors into the residual stream. Mean-difference injections beat the Personality Prompting baseline in <b>11 of 14 models</b>, and a hybrid of steering plus prompting wins in 13 of 14 — overturning earlier claims that prompting is the stronger lever.",
         arxiv: "2604.14463",
+        code: "https://github.com/leonardo-blas/psychological-steering",
         bib: `@misc{blas2026psychological,
   title         = {Psychological Steering of Large Language Models},
   author        = {Blas, Leonardo and Jia, Robin and Ferrara, Emilio},
@@ -342,6 +344,23 @@ const DATA = [
     sec: "02", secTitle: "LLM auditing, bias, and fairness",
     items: [
       {
+        status: "PREPRINT",
+        title: "QuantiBias: Benchmarking Quantization-Induced Bias in LLMs",
+        authors: "Emilio Ferrara",
+        venue: "arXiv preprint, 2026",
+        why: "Nearly every model that reaches a broad audience is quantized after training, and that step is rarely re-checked for safety. Holding model, training, and prompts fixed, the compressed model still refuses harmful requests and still picks the unbiased multiple-choice answer &mdash; yet asked an open-ended question it volunteers stereotypes in roughly one in four answers under an independent judge, in all eight languages probed. The <b>selective gap</b> is the finding: a build passes every standard check and still reaches users measurably more biased.",
+        arxiv: "2607.21063",
+        data: "https://huggingface.co/datasets/emilioferrara/quantibias",
+        bib: `@misc{ferrara2026quantibias,
+  title         = {{QuantiBias}: Benchmarking Quantization-Induced Bias in {LLMs}},
+  author        = {Ferrara, Emilio},
+  year          = {2026},
+  eprint        = {2607.21063},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}`
+      },
+      {
         status: "PUBLISHED",
         title: "No Free Lunch in Language Model Bias Mitigation? Targeted Bias Reduction Can Exacerbate Unmitigated LLM Biases",
         authors: "Shireen Chand, Faith Baca, Emilio Ferrara",
@@ -366,6 +385,8 @@ const DATA = [
         venue: "KDD 2026 (accepted)",
         why: "A 642-item benchmark that pairs nine validated psychology instruments with four ethical-dilemma games, run five times across three model families for 9,630 invocations. The human moral-foundation correlation structure <b>largely fails to transfer</b> to LLMs, and models contradict themselves across contexts — evidence of surface heuristics rather than stable ethical frameworks.",
         arxiv: "2603.00048",
+        code: "https://github.com/EricaCoppolillo/MOSAIC",
+        data: "https://huggingface.co/datasets/EriCop/MOSAIC",
         bib: `@inproceedings{coppolillo2026mosaic,
   title     = {MOSAIC: Unveiling the Moral, Social and Individual Dimensions of Large Language Models},
   author    = {Coppolillo, Erica and Ferrara, Emilio},
@@ -382,6 +403,7 @@ const DATA = [
         venue: "Findings of EMNLP 2025, 20241–20262",
         why: "A 3,000-question benchmark of culturally grounded personality scenarios across six countries. Grounding the scenarios in local context cuts Wasserstein distance to country-specific human Big Five distributions by <b>over 20%</b>, showing that standard personality evaluations miss cultural modulation entirely.",
         doi: "10.18653/v1/2025.findings-emnlp.1101",
+        code: "https://github.com/limenlp/CulturalPersonas",
         bib: `@inproceedings{dey2025culturalpersonas,
   title     = {Can {LLMs} Express Personality Across Cultures? Introducing {CulturalPersonas} for Evaluating Trait Alignment},
   author    = {Dey, Priyanka and Bothra, Aayush and Khanter, Yugal and Zhao, Jieyu and Ferrara, Emilio},
@@ -522,6 +544,7 @@ const DATA = [
         venue: "arXiv preprint, 2026",
         why: "Measures the political expressivity range of 31 open-source models across 10 families and audits eight plain-language jailbreaks. Baseline expressivity is already tilted — <b>29 of 31 models</b> express left-leaning positions with higher fidelity — few-shot prompting is the only reliably effective expander, and three jailbreaks backfire into more refusals rather than fewer.",
         arxiv: "2605.22880",
+        code: "https://github.com/SIGNALS-Lab/llm-overton-external",
         bib: `@misc{ruiz2026howfar,
   title         = {How Far Will They Go? Red-Teaming Online Influence with Large Language Models},
   author        = {Ruiz, Daniel C. and Serbina, Anna and Rao, Ashwin and Ferrara, Emilio and Luceri, Luca},
@@ -717,6 +740,7 @@ const DATA = [
         venue: "NAACL 2024, 7478–7496",
         why: "Builds an evaluation framework for language-model moderators grounded in moderation theory, and measures whether an LLM placed inside a conversation actually improves its health rather than merely suppressing it.",
         doi: "10.18653/v1/2024.naacl-long.415",
+        code: "https://github.com/isi-nlp/boteval",
         bib: `@inproceedings{cho2024moderators,
   title     = {Can Language Model Moderators Improve the Health of Online Discourse?},
   author    = {Cho, Hyundong and Liu, Shuai and Shi, Taiwei and Jain, Darpan and Rizk, Basem and Huang, Yuyang and Lu, Zixun and Wen, Nuan and Gratch, Jonathan and Ferrara, Emilio and May, Jonathan},
@@ -769,6 +793,24 @@ const DATA = [
     items: [
       {
         status: "PUBLISHED",
+        title: "ECHO: Encoding Communities via High-order Operators",
+        authors: "Emilio Ferrara",
+        venue: "Machine Learning with Applications 25, 100930, 2026",
+        why: "A self-supervised framework for attributed community detection that targets two distinct failure modes at once: over-smoothing and heterophilic poisoning in graph neural networks, and the quadratic memory cost of contrastive similarity extraction. Combines a topology-aware router that selects inductive bias per graph, attention-guided multi-scale diffusion, and a chunked O(N&middot;K) similarity step that removes the O(N&sup2;) bottleneck.",
+        doi: "10.1016/j.mlwa.2026.100930",
+        code: "https://github.com/emilioferrara/ECHO-GNN",
+        bib: `@article{ferrara2026echo,
+  title   = {{ECHO}: Encoding Communities via High-order Operators},
+  author  = {Ferrara, Emilio},
+  journal = {Machine Learning with Applications},
+  volume  = {25},
+  pages   = {100930},
+  year    = {2026},
+  doi     = {10.1016/j.mlwa.2026.100930}
+}`
+      },
+      {
+        status: "PUBLISHED",
         title: "Auditing Political Exposure Bias: Algorithmic Amplification on Twitter/X During the 2024 U.S. Presidential Election",
         authors: "Jinyi Ye, Luca Luceri, Emilio Ferrara",
         venue: "ACM FAccT 2025",
@@ -790,6 +832,8 @@ const DATA = [
         venue: "AAAI 2025",
         why: "A graph foundation model for detecting state-sponsored influence operations. Listed here as an AI-methods contribution: the interest is the transferable graph representation, not the individual campaigns it recovers.",
         doi: "10.1609/aaai.v39i27.35046",
+        code: "https://github.com/mminici/InfoOpsGFM",
+        data: "https://zenodo.org/records/13357621",
         bib: `@inproceedings{minici2025iohunter,
   title     = {{IOHunter}: Graph Foundation Model to Uncover Online Information Operations},
   author    = {Minici, Marco and Luceri, Luca and Fabbri, Francesco and Ferrara, Emilio},
@@ -819,6 +863,8 @@ function render() {
       if (it.doi) links.push(`<a href="https://doi.org/${it.doi}" target="_blank" rel="noopener">DOI</a>`);
       if (it.arxiv) links.push(`<a href="https://arxiv.org/abs/${it.arxiv}" target="_blank" rel="noopener">arXiv</a>`);
       if (it.url) links.push(`<a href="${it.url}" target="_blank" rel="noopener">Document</a>`);
+  if (it.code) links.push(`<a href="${it.code}" target="_blank" rel="noopener">Code</a>`);
+  if (it.data) links.push(`<a href="${it.data}" target="_blank" rel="noopener">Data</a>`);
       links.push(`<button onclick="toggleBib(this)">BibTeX</button>`);
       links.push(`<button onclick="copyBib(this)">Copy</button>`);
       html += `<article class="entry" data-bib="${encodeURIComponent(it.bib)}">
