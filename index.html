@@ -238,7 +238,7 @@
   </div>
 
   <footer>
-    Last updated 26 July 2026. Bibliographic detail is taken from the canonical CV; DOIs are
+    Last updated 3 September 2026. Bibliographic detail is taken from the canonical CV; DOIs are
     listed only where one has been assigned. For the complete publication record, including work
     outside AI, see <a href="https://scholar.google.com/citations?user=0r7Syh0AAAAJ">Google Scholar</a>.
   </footer>
@@ -267,6 +267,23 @@ const DATA = [
   pages   = {339},
   year    = {2026},
   doi     = {10.3390/fi18070339}
+}`
+      },
+      {
+        status: "PREPRINT",
+        title: "Open-Weight Masked Introspection: Measuring What Language Models Can Report About Their Own Computation",
+        authors: "Emilio Ferrara",
+        venue: "arXiv preprint, 2026",
+        why: "Can a model tell when its own internals have been altered? OWMI intervenes on residual-stream sites, attention heads, and sparse-autoencoder features of <b>eight open-weight models from seven families</b>, then asks the model whether anything changed, scored against sham runs, impact-matched random perturbations, and a text-only observer. Over <b>78,000 measurements</b> no model's report beats chance (AUROC about 0.5007), and an equivalence test bounds any effect below 0.15 percentage points of AUROC. The information is nevertheless present: a fine-tuned model reports the same interventions near-perfectly on held-out directions, and a linear probe recovers them from the same activations. The gap between what the model contains and what it can report is the finding, and it sets a measurable bar for introspection-based oversight.",
+        arxiv: "2608.20569",
+        code: "https://huggingface.co/emilioferrara/owmi",
+        bib: `@misc{ferrara2026owmi,
+  title         = {Open-Weight Masked Introspection: Measuring What Language Models Can Report About Their Own Computation},
+  author        = {Ferrara, Emilio},
+  year          = {2026},
+  eprint        = {2608.20569},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
 }`
       },
       {
@@ -382,7 +399,7 @@ const DATA = [
         status: "IN PRESS",
         title: "MOSAIC: Unveiling the Moral, Social and Individual Dimensions of Large Language Models",
         authors: "Erica Coppolillo, Emilio Ferrara",
-        venue: "KDD 2026 (accepted)",
+        venue: "CIKM 2026, Resource Track (accepted)",
         why: "A 642-item benchmark that pairs nine validated psychology instruments with four ethical-dilemma games, run five times across three model families for 9,630 invocations. The human moral-foundation correlation structure <b>largely fails to transfer</b> to LLMs, and models contradict themselves across contexts — evidence of surface heuristics rather than stable ethical frameworks.",
         arxiv: "2603.00048",
         code: "https://github.com/EricaCoppolillo/MOSAIC",
@@ -390,7 +407,7 @@ const DATA = [
         bib: `@inproceedings{coppolillo2026mosaic,
   title     = {MOSAIC: Unveiling the Moral, Social and Individual Dimensions of Large Language Models},
   author    = {Coppolillo, Erica and Ferrara, Emilio},
-  booktitle = {Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining},
+  booktitle = {Proceedings of the 35th ACM International Conference on Information and Knowledge Management (CIKM 2026)},
   year      = {2026},
   eprint    = {2603.00048},
   archivePrefix = {arXiv}
