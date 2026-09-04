@@ -738,6 +738,21 @@ const DATA = [
     sec: "07", secTitle: "Human-AI interaction, personalization, and applications",
     items: [
       {
+        status: "IN PRESS",
+        title: "PALMs: Using Multi-Construct Grounded Rationales for Modeling Population Preferences in LLMs",
+        authors: "Priyanka Dey, Brihi Joshi, Preyashi Poddar, Jieyu Zhao, Emilio Ferrara",
+        venue: "EMNLP 2026 (accepted, main conference)",
+        why: "A suite of models each aligned to one of five populations (USA, India, Brazil, France, Italy), built by synthesizing rationales grounded in psychological and cultural constructs and using them as latent supervision during preference tuning. Across personality, values and beliefs, cultural norms, and morality, the population-aligned models beat every baseline including culture-specialized ones (<b>8.59% average relative improvement</b>), and construct-grounded rationales outperform both demographic prompting and survey-based fine-tuning. The gains transfer without task-specific supervision to personalized reward modeling (+5.19%), population simulation (+6.34%), and social reasoning.",
+        url: "https://github.com/limenlp/PALMs",
+        code: "https://github.com/limenlp/PALMs",
+        bib: `@inproceedings{dey2026palms,
+  title     = {{PALMs}: Using Multi-Construct Grounded Rationales for Modeling Population Preferences in {LLMs}},
+  author    = {Dey, Priyanka and Joshi, Brihi and Poddar, Preyashi and Zhao, Jieyu and Ferrara, Emilio},
+  booktitle = {Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  year      = {2026}
+}`
+      },
+      {
         status: "PUBLISHED",
         title: "GRAVITY: A Framework for Personalized Text Generation via Profile-Grounded Synthetic Preferences",
         authors: "Priyanka Dey, Daniele Rosa, Wenqing Zheng, Daniel Barcklow, Jieyu Zhao, Emilio Ferrara",
