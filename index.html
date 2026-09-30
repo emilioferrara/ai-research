@@ -238,7 +238,7 @@
   </div>
 
   <footer>
-    Last updated 3 September 2026. Bibliographic detail is taken from the canonical CV; DOIs are
+    Last updated 30 September 2026. Bibliographic detail is taken from the canonical CV; DOIs are
     listed only where one has been assigned. For the complete publication record, including work
     outside AI, see <a href="https://scholar.google.com/citations?user=0r7Syh0AAAAJ">Google Scholar</a>.
   </footer>
@@ -288,21 +288,22 @@ const DATA = [
       },
       {
         status: "PUBLISHED",
-        title: "Position: Measuring Human Preferences in RLHF is a Social Science Problem",
+        title: "Position: RLHF May Not Reflect Genuine Preferences",
         authors: "Bijean Ghafouri, Eun Cheol Choi, Priyanka Dey, Emilio Ferrara",
-        venue: "ICML 2026, Proceedings of Machine Learning Research 306",
+        venue: "ICML 2026, Proceedings of Machine Learning Research 306, 170283&ndash;170322",
         why: "RLHF assumes human annotations encode stable underlying preferences. On the PRISM and PluriHarms datasets that assumption frequently fails: filtering out high-inconsistency annotators <b>flips the majority harm classification for 18.6% of prompts</b> and shifts mean ratings by 13.2 points on a 100-point scale. The first three authors contributed equally.",
-        url: "https://icml.cc/virtual/2026/poster/67229",
+        url: "https://proceedings.mlr.press/v306/ghafouri26a.html",
         arxiv: "2604.03238",
         bib: `@inproceedings{ghafouri2026rlhf,
-  title     = {Position: Measuring Human Preferences in {RLHF} is a Social Science Problem},
+  title     = {Position: {RLHF} May Not Reflect Genuine Preferences},
   author    = {Ghafouri, Bijean and Choi, Eun Cheol and Dey, Priyanka and Ferrara, Emilio},
   booktitle = {Proceedings of the 43rd International Conference on Machine Learning},
   series    = {Proceedings of Machine Learning Research},
   volume    = {306},
+  pages     = {170283--170322},
   year      = {2026},
-  eprint    = {2604.03238},
-  archivePrefix = {arXiv}
+  publisher = {PMLR},
+  url       = {https://proceedings.mlr.press/v306/ghafouri26a.html}
 }`
       },
       {
@@ -553,6 +554,21 @@ const DATA = [
   booktitle = {Proceedings of the ACM Web Conference 2026},
   year      = {2026},
   doi       = {10.1145/3774904.3792580}
+}`
+      },
+      {
+        status: "PREPRINT",
+        title: "Coding Agents with an Obstacle-Aware Harness for Safe Robot Manipulation",
+        authors: "Bingxin Xu, Yuzhang Shang, Zhen Dong, Emilio Ferrara",
+        venue: "arXiv preprint, 2026",
+        why: "Asks whether the coding-agent paradigm for robot control is <b>safe</b>, not merely capable. Each task pairs a manipulation goal with an obstacle the robot must not touch, and the agent collides with it in most cases &mdash; even though it reasons about the obstacle in its traces and the prompt forbids touching it, so the fault is in planning rather than perception or instruction. The proposed SafeHarness grounds objects as bounding boxes, plans and verifies a route before executing, and picks contact positions that clear the obstacle, reaching <b>71.9% task success and 87.5% collision avoidance</b> (+6.5 and +27.0 points over the prior state of the art).",
+        arxiv: "2609.20822",
+        bib: `@misc{xu2026coding,
+  title         = {Coding Agents with an Obstacle-Aware Harness for Safe Robot Manipulation},
+  author        = {Xu, Bingxin and Shang, Yuzhang and Dong, Zhen and Ferrara, Emilio},
+  year          = {2026},
+  eprint        = {2609.20822},
+  archivePrefix = {arXiv}
 }`
       },
       {
@@ -827,10 +843,10 @@ const DATA = [
     sec: "08", secTitle: "Algorithmic auditing and AI methods",
     items: [
       {
-        status: "IN PRESS",
+        status: "PUBLISHED",
         title: "Community Detection as Adaptive Diffusion",
         authors: "Emilio Ferrara",
-        venue: "ACM AI Letters, 2026 (Just Accepted)",
+        venue: "ACM AI Letters, 1(3):1&ndash;8, 2026",
         why: "The companion Letter to the ECHO journal paper, recasting community structure as regions of <b>adaptive diffusion</b> on a semantic manifold rather than as dense-edge clusters. Its distinctive contribution is a controlled feature-strength study that says <b>when</b> diffusion is the decisive component: it recovers communities from topology when node features are weak, and is actively harmful when features are strong, with a topology-aware router letting one model span both regimes. Beats the strongest of nine recent baselines by 5&ndash;29 NMI points on Amazon Photo/Computers, Coauthor-CS, and the 70-class CoraFull.",
         doi: "10.1145/3832782",
         code: "https://github.com/emilioferrara/ECHO-GNN",
@@ -838,6 +854,9 @@ const DATA = [
   title   = {Community Detection as Adaptive Diffusion},
   author  = {Ferrara, Emilio},
   journal = {ACM AI Letters},
+  volume  = {1},
+  number  = {3},
+  pages   = {1--8},
   year    = {2026},
   doi     = {10.1145/3832782}
 }`
