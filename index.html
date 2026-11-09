@@ -238,7 +238,7 @@
   </div>
 
   <footer>
-    Last updated 30 September 2026. Bibliographic detail is taken from the canonical CV; DOIs are
+    Last updated 8 November 2026. Bibliographic detail is taken from the canonical CV; DOIs are
     listed only where one has been assigned. For the complete publication record, including work
     outside AI, see <a href="https://scholar.google.com/citations?user=0r7Syh0AAAAJ">Google Scholar</a>.
   </footer>
@@ -397,19 +397,23 @@ const DATA = [
 }`
       },
       {
-        status: "IN PRESS",
+        status: "PUBLISHED",
         title: "MOSAIC: Unveiling the Moral, Social and Individual Dimensions of Large Language Models",
         authors: "Erica Coppolillo, Emilio Ferrara",
-        venue: "CIKM 2026, Resource Track (accepted)",
+        venue: "CIKM 2026, Resource Track, 8879–8884",
         why: "A 642-item benchmark that pairs nine validated psychology instruments with four ethical-dilemma games, run five times across three model families for 9,630 invocations. The human moral-foundation correlation structure <b>largely fails to transfer</b> to LLMs, and models contradict themselves across contexts — evidence of surface heuristics rather than stable ethical frameworks.",
+        doi: "10.1145/3799682.3840183",
         arxiv: "2603.00048",
         code: "https://github.com/EricaCoppolillo/MOSAIC",
         data: "https://huggingface.co/datasets/EriCop/MOSAIC",
         bib: `@inproceedings{coppolillo2026mosaic,
   title     = {MOSAIC: Unveiling the Moral, Social and Individual Dimensions of Large Language Models},
   author    = {Coppolillo, Erica and Ferrara, Emilio},
-  booktitle = {Proceedings of the 35th ACM International Conference on Information and Knowledge Management (CIKM 2026)},
+  booktitle = {Proceedings of the 35th ACM International Conference on Information and Knowledge Management},
+  pages     = {8879--8884},
+  publisher = {ACM},
   year      = {2026},
+  doi       = {10.1145/3799682.3840183},
   eprint    = {2603.00048},
   archivePrefix = {arXiv}
 }`
@@ -487,6 +491,37 @@ const DATA = [
 }`
       },
       {
+        status: "PREPRINT",
+        title: "The Butterfly Effect in LLM Social Simulations: From Architecture Sensitivity to Robustness Audits",
+        authors: "Jinyi Ye, Lei Cao, Ding Chen, Emilio Ferrara",
+        venue: "arXiv preprint, 2026",
+        why: "The full empirical study behind the <i>Stop Drawing Scientific Claims</i> position paper, now spanning a repeated Prisoner's Dilemma and a social-media echo chamber across four LLM families. Changing only how a matched persona is represented shifts two-agent cooperation by <b>75.2 percentage points</b> on GPT-5.2, and multi-agent interaction can amplify or attenuate that sensitivity until it reaches network-level outcomes. Adds the <b>Social Simulation Audit Card</b> alongside the TRAILS taxonomy.",
+        arxiv: "2610.28981",
+        code: "https://github.com/angelayejinyi/butterfly-effect-sim",
+        bib: `@misc{ye2026butterflysim,
+  title         = {The Butterfly Effect in {LLM} Social Simulations: From Architecture Sensitivity to Robustness Audits},
+  author        = {Ye, Jinyi and Cao, Lei and Chen, Ding and Ferrara, Emilio},
+  year          = {2026},
+  eprint        = {2610.28981},
+  archivePrefix = {arXiv}
+}`
+      },
+      {
+        status: "PREPRINT",
+        title: "MetaPersona: Task-Grounded Synthetic Populations from Empirical Social Science",
+        authors: "Jinyi Ye, Yuangang Li, Chenxiao Yu, Preyashi Poddar, Priyanka Dey, Longtian Ye, Zihan Wang, Xiyang Hu, Emilio Ferrara, Yue Zhao",
+        venue: "arXiv preprint, 2026",
+        why: "Attacks the cold-start problem of persona-seeded LLM simulations: which attributes a synthetic population should carry, and with what values. Builds <b>MetaPersona-DB</b>, more than 11,000 empirical human-subjects studies annotated with task-relevant variables, reported relationships, and population statistics, then samples synthetic populations from literature-derived persona dependency graphs rather than from ad hoc demographic templates.",
+        arxiv: "2609.38392",
+        bib: `@misc{ye2026metapersona,
+  title         = {{MetaPersona}: Task-Grounded Synthetic Populations from Empirical Social Science},
+  author        = {Ye, Jinyi and Li, Yuangang and Yu, Chenxiao and Poddar, Preyashi and Dey, Priyanka and Ye, Longtian and Wang, Zihan and Hu, Xiyang and Ferrara, Emilio and Zhao, Yue},
+  year          = {2026},
+  eprint        = {2609.38392},
+  archivePrefix = {arXiv}
+}`
+      },
+      {
         status: "PUBLISHED",
         title: "Overstating Attitudes, Ignoring Networks: LLM Biases in Simulating Misinformation Susceptibility",
         authors: "Eun Cheol Choi, Lindsay E. Young, Emilio Ferrara",
@@ -558,16 +593,31 @@ const DATA = [
       },
       {
         status: "PREPRINT",
-        title: "Coding Agents with an Obstacle-Aware Harness for Safe Robot Manipulation",
+        title: "Coding Agents with Harness for Safe Robot Control",
         authors: "Bingxin Xu, Yuzhang Shang, Zhen Dong, Emilio Ferrara",
         venue: "arXiv preprint, 2026",
-        why: "Asks whether the coding-agent paradigm for robot control is <b>safe</b>, not merely capable. Each task pairs a manipulation goal with an obstacle the robot must not touch, and the agent collides with it in most cases &mdash; even though it reasons about the obstacle in its traces and the prompt forbids touching it, so the fault is in planning rather than perception or instruction. The proposed SafeHarness grounds objects as bounding boxes, plans and verifies a route before executing, and picks contact positions that clear the obstacle, reaching <b>71.9% task success and 87.5% collision avoidance</b> (+6.5 and +27.0 points over the prior state of the art).",
+        why: "Asks whether the coding-agent paradigm for robot control is <b>safe</b>, not merely capable. Each task pairs a manipulation goal with an obstacle the robot must not touch, and the agent collides with it in most cases &mdash; even though it reasons about the obstacle in its traces and the prompt forbids touching it, so the fault is in planning rather than perception or instruction. The proposed SafeHarness grounds objects as bounding boxes, plans and verifies a route before executing, and picks contact positions that clear the obstacle, reaching <b>81.2% task success and 91.9% collision avoidance</b> with GPT-6-Astra (+13.7 and +23.0 points over the prior state of the art).",
         arxiv: "2609.20822",
         bib: `@misc{xu2026coding,
-  title         = {Coding Agents with an Obstacle-Aware Harness for Safe Robot Manipulation},
+  title         = {Coding Agents with Harness for Safe Robot Control},
   author        = {Xu, Bingxin and Shang, Yuzhang and Dong, Zhen and Ferrara, Emilio},
   year          = {2026},
   eprint        = {2609.20822},
+  archivePrefix = {arXiv}
+}`
+      },
+      {
+        status: "PREPRINT",
+        title: "Agent Mosaic: Recognizing Confidentiality Leaks in Agentic LLM Systems",
+        authors: "Daniel Ruiz, Luca Luceri, Emilio Ferrara",
+        venue: "arXiv preprint, 2026",
+        why: "Measures the <b>mosaic effect</b> in agents: retrieving individually harmless documents and disclosing a sensitive conclusion assembled from them. Across 30 synthetic cybersecurity, medical, and military scenarios (10,800 simulated answers plus 1,440 from live open-source harnesses), even benign queries answerable from one document yield forbidden composites in <b>7.08%</b> of the best model's answers, and more in live harnesses. Classification headers and explicit aggregation rules help but leave unsafe disclosures in 32.37% of simulated answers.",
+        arxiv: "2610.30418",
+        bib: `@misc{ruiz2026agentmosaic,
+  title         = {Agent Mosaic: Recognizing Confidentiality Leaks in Agentic {LLM} Systems},
+  author        = {Ruiz, Daniel and Luceri, Luca and Ferrara, Emilio},
+  year          = {2026},
+  eprint        = {2610.30418},
   archivePrefix = {arXiv}
 }`
       },
@@ -754,18 +804,24 @@ const DATA = [
     sec: "07", secTitle: "Human-AI interaction, personalization, and applications",
     items: [
       {
-        status: "IN PRESS",
+        status: "PUBLISHED",
         title: "PALMs: Using Multi-Construct Grounded Rationales for Modeling Population Preferences in LLMs",
         authors: "Priyanka Dey, Brihi Joshi, Preyashi Poddar, Jieyu Zhao, Emilio Ferrara",
-        venue: "EMNLP 2026 (accepted, main conference)",
+        venue: "EMNLP 2026, Main Conference, 20475–20517",
         why: "A suite of models each aligned to one of five populations (USA, India, Brazil, France, Italy), built by synthesizing rationales grounded in psychological and cultural constructs and using them as latent supervision during preference tuning. Across personality, values and beliefs, cultural norms, and morality, the population-aligned models beat every baseline including culture-specialized ones (<b>8.59% average relative improvement</b>), and construct-grounded rationales outperform both demographic prompting and survey-based fine-tuning. The gains transfer without task-specific supervision to personalized reward modeling (+5.19%), population simulation (+6.34%), and social reasoning.",
-        url: "https://github.com/limenlp/PALMs",
+        doi: "10.18653/2026.emnlp-main.888",
+        url: "https://aclanthology.org/2026.emnlp-main.888/",
         code: "https://github.com/limenlp/PALMs",
         bib: `@inproceedings{dey2026palms,
   title     = {{PALMs}: Using Multi-Construct Grounded Rationales for Modeling Population Preferences in {LLMs}},
   author    = {Dey, Priyanka and Joshi, Brihi and Poddar, Preyashi and Zhao, Jieyu and Ferrara, Emilio},
-  booktitle = {Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
-  year      = {2026}
+  booktitle = {Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing},
+  pages     = {20475--20517},
+  publisher = {Association for Computational Linguistics},
+  address   = {Budapest, Hungary},
+  year      = {2026},
+  url       = {https://aclanthology.org/2026.emnlp-main.888/},
+  doi       = {10.18653/2026.emnlp-main.888}
 }`
       },
       {
